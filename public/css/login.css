@@ -1,0 +1,146 @@
+/* @import url(dashboard.css); */
+@import url(normalize.css);
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-font:'Karla', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: var(--main-font);
+    background-color: #ffffff;
+}
+
+.login__container--box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24rem;
+    padding: 2.4rem;
+    background: #0056a7;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 0.6rem;
+}
+
+.login__container--title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding: 0;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 200;
+}
+
+.login__container--box .user__input {
+    position: relative;
+}
+
+.icon__user--log, .icon__pass--log{
+    position: absolute;
+    top: 0.8rem;
+    left: 15.5rem;
+    color: #a7edff;
+}
+
+.login__container--box .user__input input {
+    width: 17rem;
+    padding: 0.6rem 0;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1.8rem;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login__container--box .user__input label {
+    position: absolute;
+    top: -1.25rem;
+    left: 0;
+    padding: 0.6rem 0;
+    font-size: .75rem;
+    color: #a7edff;
+    pointer-events: none;
+}
+
+.login__user--container {
+    display: flex;
+    justify-content: center;
+}
+
+.login__user--button {
+    width: 7rem;
+    height: 2rem;
+    margin-top: 1rem;
+    border-radius: 0.3rem;
+    border: 0.13rem solid #a7edff;
+    background: transparent;
+    font-size: 0.9rem;
+    color: #a7edff;
+}
+
+.login__user--button:hover {
+    background-color: #a7edff;
+    font-weight: 700;
+    color: #0056a7;
+    cursor: pointer;
+}
+
+.logout__success--container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 -1rem 0;
+}
+
+.logout__success--p {
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #fcbc46;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0056a7;
+}
+
+.email__error--container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 -1rem 0;
+}
+
+.email__error--p {
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #df5f3f;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #fcfcfc;
+}
+
+.pass__error--container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 -1rem 0;
+}
+
+.pass__error--p {
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #df3f3f;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #fcfcfc;
+}
