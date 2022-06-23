@@ -1,6 +1,8 @@
 <?php
+
 class Database
 {
+
     private $host;
     private $db;
     private $user;
@@ -18,38 +20,33 @@ class Database
 
     public function connect()
     {
-        $conn = 'mysql:host=' . $this->host . ';dbname=' . $this->db . ';charset=' . $this->charset;
-        $options = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_EMULATE_PREPARES => false
-        ];
         try {
-            $pdo = new PDO($conn, $this->user,  $this->password, $options);
+            $conn = 'mysql:host=' . $this->host . ';dbname=' . $this->db . ';charset=' . $this->charset;
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES => false
+            ];
+            $pdo = new PDO($conn, $this->user, $this->password);
             return $pdo;
         } catch (PDOException $e) {
-            if ($e->getCode() == 1049) {
-                $this->createDB();
-                $pdo = new PDO($conn, $this->user,  $this->password, $options);
+            $errorCode = $e->getCode();
+            if ($errorCode == 1049) {
+                $this->createDb();
+                $pdo = new PDO($conn, $this->user, $this->password);
                 return $pdo;
+            }else{
+                throw new PDOException($e->getMessage());
             }
         }
     }
 
-    public function createDB()
+    public function createDb()
     {
         $conn = 'mysql:host=' . $this->host;
-        $options = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_EMULATE_PREPARES => false
-        ];
-        try {
-            $pdo = new PDO($conn, $this->user,  $this->password, $options);
-            $sqlCreate = file_get_contents(SCRIPTS . "createTables.sql");
-            $pdo->exec($sqlCreate);
-            $sqlInsert = file_get_contents(SCRIPTS . "insertData.sql");
-            $pdo->exec($sqlInsert);
-        } catch (PDOException $e) {
-            $e->getMessage();
-        }
+        $pdo = new PDO($conn, $this->user, $this->password);
+        $sql = file_get_contents(SCRIPTS . 'createTables.sql');
+        $pdo->exec($sql);
+        $sql = file_get_contents(SCRIPTS . 'insertData.sql');
+        $pdo->exec($sql);
     }
 }
