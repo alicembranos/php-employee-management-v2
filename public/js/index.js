@@ -6,7 +6,7 @@ const BASEURL = document.getElementById("header").dataset["base_url"];
 //refresh table with all employees for each page
 await refreshTable(0);
 
-export async function refreshTable(empl) {
+async function refreshTable(empl) {
   //check if table has employees and create the table data
   if (tableBody.children.length !== 0) {
     //charge the employees of data base
@@ -81,3 +81,5 @@ formNavBack.addEventListener("click", (event) => {
     refreshTable("-" + inputBack.getAttribute("value"));
   }
 });
+
+export { refreshTable, BASEURL };

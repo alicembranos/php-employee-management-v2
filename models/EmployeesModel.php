@@ -59,4 +59,14 @@ class EmployeesModel extends Model
             new ErrorController($e->getMessage());
         }
     }
+
+    public function findUserByEmail($email)
+    {
+        try {
+            $sql = "SELECT * FROM employees WHERE email = ?";
+            return $this->query($sql, [$email])[0];
+        } catch (PDOException $e) {
+            new ErrorController($e->getMessage());
+        }
+    }
 }

@@ -24,7 +24,8 @@ if (isset($_SESSION["userAdded"])) {
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table-sm" id="tableData">
-        <!-- class table-hover -->
+
+        <!-- THEAD -->
         <thead id="tableHead">
             <tr class="menu__title--container">
                 <th class="menu__title--table">Name</th>
@@ -39,25 +40,42 @@ if (isset($_SESSION["userAdded"])) {
             </tr>
             <form class="create__user--container" id="addEmployeeForm" action="./library/employeeController.php" method="post">
                 <tr id="rowInput" class="hide">
-                    <td> <input class="create__user--input" type="text" name="name" id="" required>
+                    <td>
+                        <input class="create__user--input" type="text" name="name" id="name">
+                        <p class="hide error__validation" id="errorName"></p>
                     </td>
-                    <td><input class="create__user--input" type="email" name="email" id="" required> </td>
-                    <td><input class="create__user--input" type="number" name="age" id="" maxlength="2" required></td>
-                    <td> <input class="create__user--input" type="text" name="streetAddress" required></td>
-                    <td><input class="create__user--input" type="text" name="city" id="" required></td>
-                    <td><input class="create__user--input" type="text" name="state" id="" required></td>
-                    <td> <input class="create__user--input" type="number" name="postalCode" id="" maxlength="5" required></td>
-                    <td><input class="create__user--input" type="tel" name="phoneNumber" id="" maxlength="9" required></td>
+                    <td>
+                        <input class="create__user--input" type="email" name="email" id="email">
+                        <p class="hide error__validation" id="errorEmail"></p>
+                    </td>
+                    <td>
+                        <input class="create__user--input" type="number" name="age" id="age">
+                        <p class="hide error__validation" id="errorAge"></p>
+                    </td>
+                    <td><input class="create__user--input" type="text" name="streetAddress"></td>
+                    <td><input class="create__user--input" type="text" name="city" id="city"></td>
+                    <td><input class="create__user--input" type="text" name="state" id="dstate"></td>
+                    <td>
+                        <input class="create__user--input" type="number" name="postalCode" id="postalCode">
+                        <p class="hide error__validation" id="errorPostalCode"></p>
+                    </td>
+                    <td><input class="create__user--input" type="text" name="phoneNumber" id="phoneNumber"></td>
                     <td><button class="create__user--button" id="addBtn" name="newEmployee" required><i class='bx bx-plus-medical'></i></button></td>
                 </tr>
             </form>
         </thead>
-        <!--  -->
+        <!-- THEAD -->
+
+        <!-- TBODY -->
         <tbody class="table__tbody--dataEmployer" id="tableBody">
         </tbody>
+        <!-- TBODY -->
+
     </table>
 
 </main>
+
+<!-- PAGINATION -->
 <div class="div-btn-navigation">
     <form class="back__btn" action="./library/employeeController.php" method="post" id="form-navigation-back">
         <input type="hidden" name="page" value="" id="backPage">
@@ -68,6 +86,8 @@ if (isset($_SESSION["userAdded"])) {
         Next<i class='bx bx-right-arrow'></i>
     </form>
 </div>
+<!-- PAGINATION -->
+
 <script>
     const dashboardTag = document.getElementById("dashboardTag");
     const employeeTag = document.getElementById("employeeTag");

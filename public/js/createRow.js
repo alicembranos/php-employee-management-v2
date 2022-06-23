@@ -1,4 +1,3 @@
-//function to create each row for table dashboard to show data
 function createRow(element, i){
     //Create row, add class and id for the future listener
     let tableRow = document.createElement("tr");
@@ -12,10 +11,6 @@ function createRow(element, i){
     inputHidden.setAttribute("type", "hidden");
     inputHidden.setAttribute("name", "info");
     inputHidden.setAttribute("value", i);
-
-
-
-
 
     //we create the tablecells
     let tableCellName = document.createElement("td");
@@ -67,7 +62,6 @@ function createRow(element, i){
 
     //Add the data of each cell to row
     tableRow.append(employeeForm, tableCellName, tableCellEmail,tableCellAge,tableCellStreet,tableCellCity,tableCellState,tableCellPostal,tableCellPhone, tableCellIcon);
-
 
     //return the row created with data employeer
     return tableRow;
