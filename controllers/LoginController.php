@@ -50,7 +50,7 @@ class LoginController extends Controller
     {
 
         if ($this->model->checkSessionStatus()) {
-            $this->redirect('employees/displayDashboard');
+            $this->redirect('employees/dashboard');
             return true;
         }
 

@@ -16,10 +16,10 @@ define('ENTITIES', MODELS. '/entities/');
 define('VIEWS', ROOT_PATH . '/views/');
 
 // CSS
-define('CSS', BASE_URL . '/public/css/');
+define('CSS', BASE_URL . 'public/css/');
 
 // JS
-define('JS', BASE_URL . '/public/js/');
+define('JS', BASE_URL . 'public/js/');
 
 //DB SQL SCRIPTS
 define('SCRIPTS', ROOT_PATH . '/db/');

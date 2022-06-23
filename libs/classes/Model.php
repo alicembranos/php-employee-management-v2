@@ -11,7 +11,7 @@ class Model
         $this->conn = $this->database->connect();
     }
 
-    public function query($query, $params, $fetch = true)
+    public function query($query, $params = [], $fetch = true)
     {
         $statement = $this->conn->prepare($query);
         $statement->execute($params);
