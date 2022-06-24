@@ -19,10 +19,10 @@
         <div class="navBar__container container-fluid">
             <div class="col navBar__menu--logo"><img src="../assets/img/buddies-logo.png" alt=""></div>
             <div class="row navBar__menu--buttons">
-                <div id="dashboardTag" class="col navBar__menu--dashboard"><a href="./dashboard.php">Dashboard</a></div>
-                <div id="employeeTag" class="col navBar__menu--employee"><a   href="./employee.php">Employees</a></div>
+                <div id="dashboardTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>employees/dashboard">Dashboard</a></div>
+                <div id="employeeTag" class="col navBar__menu--employee"><a href="<?= BASE_URL ?>employees/employee">Employees</a></div>
                 <form class="button__logout col" action="./library/sessionHelper.php" method="post">
-                    <button class="navBar__button--logout" type="submit" name="destroy">LOGOUT <i class='bx bx-log-out bx-rotate-180' ></i></button>
+                    <button class="navBar__button--logout" type="submit" name="destroy">LOGOUT <i class='bx bx-log-out bx-rotate-180'></i></button>
                 </form>
             </div>
         </div>

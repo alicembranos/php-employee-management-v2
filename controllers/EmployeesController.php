@@ -14,6 +14,11 @@ class EmployeesController extends Controller
         $this->view->renderView('employees/dashboard');
     }
 
+    public function employee()
+    {
+        $this->view->renderView('employees/employee');
+    }
+
     public function showEmployees()
     {
         echo json_encode($this->model->getEmployees());
@@ -67,7 +72,8 @@ class EmployeesController extends Controller
         }
     }
 
-    public function deleteEmployee($id){
+    public function deleteEmployee($id)
+    {
         $this->model->deleteEmployee($id);
     }
 

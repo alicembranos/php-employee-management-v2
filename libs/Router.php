@@ -14,11 +14,7 @@ class Router
         $this->setMethod();
         $this->setParam();
         $this->index();
-
-        // echo $this->controller .'</br>';
-        // echo $this->method .'</br>';
-        // echo $this->param .'</br>';
-
+        
     }
 
     public function getUrl()
