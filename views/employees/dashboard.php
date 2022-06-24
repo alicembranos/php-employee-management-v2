@@ -38,7 +38,7 @@ if (isset($_SESSION["userAdded"])) {
                 <th class="menu__title--table">Phone Number</th>
                 <th id="displayForm"><i class='bx bxs-user-plus add__user--button'></i></th>
             </tr>
-            <form class="create__user--container" id="addEmployeeForm" action="./library/employeeController.php" method="post">
+            <form class="create__user--container" id="addEmployeeForm" action="" method="post">
                 <tr id="rowInput" class="hide">
                     <td>
                         <input class="create__user--input" type="text" name="name" id="name">
@@ -60,7 +60,7 @@ if (isset($_SESSION["userAdded"])) {
                         <p class="hide error__validation" id="errorPostalCode"></p>
                     </td>
                     <td><input class="create__user--input" type="text" name="phoneNumber" id="phoneNumber"></td>
-                    <td><button class="create__user--button" id="addBtn" name="newEmployee" required><i class='bx bx-plus-medical'></i></button></td>
+                    <td><button class="create__user--button" id="addBtn" name="newEmployee" type="submit"><i class='bx bx-plus-medical'></i></button></td>
                 </tr>
             </form>
         </thead>

@@ -64,7 +64,11 @@ class EmployeesModel extends Model
     {
         try {
             $sql = "SELECT * FROM employees WHERE email = ?";
-            return $this->query($sql, [$email])[0];
+            $result = $this->query($sql, [$email]);
+
+            if ($result) return true;
+
+            return false;
         } catch (PDOException $e) {
             new ErrorController($e->getMessage());
         }

@@ -21,12 +21,10 @@ class EmployeesController extends Controller
 
     public function addEmployee()
     {
-        $employee = json_decode(file_get_contents('php:://input'), true);
+        $employee = json_decode(file_get_contents("php://input"), true);
         $error = [];
-        $valid = true;
 
         //validation form inputs
-
         //Validate username on letters/numbers
         $nameValidation = "/^[a-zA-Z0-9]*$/";
         if (empty($employee['name'])) {
@@ -55,18 +53,43 @@ class EmployeesController extends Controller
         }
 
         //Validate if an adult
-        $postalCodeValidation = "/^[0-9]{5,6}*$/";
+        $postalCodeValidation = "/^[0-9]{5,6}$/i";
         if (empty($employee['postalCode'])) {
             $error['postalCode'] = 'Please enter a postalCode.';
         } elseif (!preg_match($postalCodeValidation, $employee['postalCode'])) {
             $error['postalCode'] = 'Must be a valid postal code.';
         }
 
-        if (sizeof($error) > 1) { //exist errors
+        if (sizeof($error) > 0) { //exist errors
             echo json_encode($error);
-        } else{
+        } else {
             echo json_encode($this->model->addEmployee($employee));
         }
+    }
 
+    //Returns the array data with the employees info to show in dashboard depending the page you are
+    public function paginationEmployees($nextEmployee)
+    {
+        $data = $this->model->getEmployees();
+        $limit = 10;
+
+        if (intval($nextEmployee[0]) >= 0) { //get the next 10 employees
+            if (count($data) - intval($nextEmployee[0]) < $limit) {
+                $limit = count($data) - intval($nextEmployee[0]);
+            }
+
+            $pageEmployees = array();
+            for ($i = intval($nextEmployee[0]); $i < $limit + intval($nextEmployee[0]); $i++) {
+                array_push($pageEmployees, (object)$data[$i]);
+            }
+        }
+        if (intval($nextEmployee[0]) < 0) { //get the last 10 employees
+            $pageEmployees = array();
+            for ($i = (intval($nextEmployee[0]) * -1) - $limit - 1; $i < (intval($nextEmployee[0]) * -1) - 1; $i++) {
+                array_push($pageEmployees, (object)$data[$i]);
+            }
+        }
+
+        echo json_encode($pageEmployees);
     }
 }

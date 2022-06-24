@@ -15,7 +15,6 @@ class Router
         $this->setParam();
         $this->index();
 
-        // var_dump($this->url);
         // echo $this->controller .'</br>';
         // echo $this->method .'</br>';
         // echo $this->param .'</br>';
@@ -46,7 +45,7 @@ class Router
 
     public function setParam()
     {
-        $this->param = !empty($this->url[2]) ? array($this->url[2]) : [];
+        $this->param = isset($this->url[2]) ? array($this->url[2]) : [];
     }
 
     //main function to set the requested controller
@@ -60,7 +59,7 @@ class Router
             if (!$isLogged) {
                 return;
             }
-            
+
             $controller = 'employees';
             $method = 'dashboard';
             $this->initController($controller, $method);
@@ -93,7 +92,8 @@ class Router
 
             if (method_exists($this->controller, $method)) {
                 $this->method = $method;
-                call_user_func_array([$this->controller, $this->method], $param);
+                $params = array_values($this->param);
+                call_user_func_array([$this->controller, $this->method], $params);
             } else {
                 new ErrorController('Method ' . $method . ' does not exist.');
             }
