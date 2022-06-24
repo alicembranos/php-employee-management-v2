@@ -67,6 +67,10 @@ class EmployeesController extends Controller
         }
     }
 
+    public function deleteEmployee($id){
+        $this->model->deleteEmployee($id);
+    }
+
     //Returns the array data with the employees info to show in dashboard depending the page you are
     public function paginationEmployees($nextEmployee)
     {

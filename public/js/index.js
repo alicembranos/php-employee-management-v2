@@ -3,13 +3,10 @@ import { createListeners, confirmDelete } from "./createListeners.js";
 const tableBody = document.getElementById("tableBody");
 const BASEURL = document.getElementById("header").dataset["base_url"];
 
-//refresh table with all employees for each page
+//display table
 await refreshTable(0);
 
 async function refreshTable(empl) {
-  //check if table has employees and create the table data
-  // if (tableBody.children.length == 0) {
-  //charge the employees of data base
   try {
     const response = await fetch(
       BASEURL + "employees/paginationEmployees/" + String(empl)
@@ -21,36 +18,17 @@ async function refreshTable(empl) {
         tableBody.removeChild(tr);
       });
     }
-    let i = 1;
     data.forEach((element) => {
-      //Create each row with Data Employeer with variable i for specify the id of each row
-      let row = createRow(element, element.id);
-      i++;
-      //We add the cell to tr and tr to tbody
+      //create employee row
+      let row = createRow(element, element.employee_id);
       tableBody.appendChild(row);
     });
     createListeners(); //create listeners for each row
-    setNextPage(); //setNextPage to stablish the next page to navigate
+    setNextPage(); //set next navigation page
     confirmDelete(); //add the listener for deleting the employee
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
-
-  // } else {
-  //   try {
-  //     const response = await fetch(BASEURL + "/employees/showEmployees");
-  //     const data = await response.json();
-  //     let i = 1;
-  //     data.forEach((element) => {
-  //       //row for each employee
-  //       let row = createRow(element, i);
-  //       i++;
-  //       tableBody.appendChild(row);
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 }
 //setNextPage to stablish the next page to navigate
 function setNextPage() {
