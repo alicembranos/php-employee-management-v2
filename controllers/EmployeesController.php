@@ -24,6 +24,13 @@ class EmployeesController extends Controller
         echo json_encode($this->model->getEmployees());
     }
 
+    public function getEmployeeInfo($id)
+    {
+        $employee = $this->model->getEmployee($id);
+        $this->view->employee = $employee;
+        $this->view->renderView('employees/employee');
+    }
+
     public function addEmployee()
     {
         $employee = json_decode(file_get_contents("php://input"), true);

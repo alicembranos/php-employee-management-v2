@@ -6,7 +6,6 @@ if (isset($_SESSION["userAdded"])) {
     $message = $_SESSION["userAdded"];
     unset($_SESSION["userAdded"]);
 }
-
 ?>
 <main>
     <p id='newEmployeeMessage' class='alert alert-success hide'></p>
@@ -92,7 +91,7 @@ if (isset($_SESSION["userAdded"])) {
     const dashboardTag = document.getElementById("dashboardTag");
     const employeeTag = document.getElementById("employeeTag");
     // Adds the class to give style depending the page you are
-    if (window.location.href.includes("dashboard.php")) {
+    if (window.location.href.includes("employees/dashboard")) {
         dashboardTag.classList.add("navBar-active");
         employeeTag.classList.remove("navBar-active");
     }
