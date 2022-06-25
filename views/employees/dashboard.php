@@ -7,6 +7,9 @@ if (isset($_SESSION["userAdded"])) {
     unset($_SESSION["userAdded"]);
 }
 ?>
+
+<script src="<?= JS ?>listeners.js" type="module"></script>
+<script src="<?= JS ?>index.js" type="module"></script>
 <main>
     <p id='newEmployeeMessage' class='alert alert-success hide'></p>
     <?php

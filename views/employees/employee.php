@@ -1,10 +1,27 @@
 <?php
 require_once VIEWS . 'header.php';
+$userAdded = false;
+if (isset($_SESSION["userAdded"])) {
+    $userAdded = true;
+    $message = $_SESSION["userAdded"];
+    unset($_SESSION["userAdded"]);
+}
 ?>
 
 <script src="<?= JS ?>listenerEmployee.js" type="module"></script>
 
 <!------------ Employee form------------>
+<p id='newEmployeeMessage' class='alert alert-success hide'></p>
+<?php
+if ($userAdded) {
+    echo "<p id='message' class='alert alert-success '>$message</p>
+        <script>
+            setTimeout(function(){
+                document.getElementById('message').style.display = 'none';
+            }, 3000);
+        </script>";
+}
+?>
 <form class="container" id="employeeForm" action="" method="post">
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
@@ -67,7 +84,8 @@ require_once VIEWS . 'header.php';
             <input type="text" class="form-control" name="phoneNumber" placeholder="PhoneNumber" aria-label="PhoneNumber" value="<?= isset($this->employee) ? $this->employee['phoneNumber'] : '' ?>">
         </div>
     </div>
-    <a href="<?= BASE_URL ?>employees/dashboard" class="btn btn-secondary mt-5 return__button">Return</a>
+    <button type="button" id="returnButton" class="btn btn-secondary mt-5 return__button">Return</button>
+    <!-- <a href="<?= BASE_URL ?>employees/dashboard" class="btn btn-secondary mt-5 return__button">Return</a> -->
     <button type="submit" class="btn btn-info mt-5 submit__button">Submit</button>
 </form>
 

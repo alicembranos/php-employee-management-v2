@@ -34,8 +34,11 @@ class EmployeesController extends Controller
     public function addEmployee()
     {
         $employee = json_decode(file_get_contents("php://input"), true);
+        if (isset($employee['employeeId'])) {
+            array_shift($employee);
+        }
         $error = [];
-
+        
         //validation form inputs
         //Validate username on letters/numbers
         $nameValidation = "/^[a-zA-Z0-9]*$/";

@@ -1,6 +1,6 @@
 import { refreshTable, BASEURL } from "./index.js";
 
-async function addEmployee(formdata) {
+async function addEmployeeRow(formdata, form) {
   const response = await fetch(BASEURL + "/employees/addEmployee", {
     method: "POST",
     header: {
@@ -12,13 +12,51 @@ async function addEmployee(formdata) {
   console.log(data);
   if (data.employee_id) {
     // Clear the form after submit
-    addEmployeeForm.reset();
+    form.reset();
     const rowInput = document.getElementById("rowInput");
     rowInput.classList.toggle("hide");
     //delete error messages
     const errorMessages = document.querySelectorAll(".error__validation");
     hideErrorMessages(errorMessages);
     refreshTable(0);
+    newEmployeeMessage.textContent = "Employee added successfully";
+    newEmployeeMessage.classList.toggle("hide");
+    setTimeout(function () {
+      newEmployeeMessage.classList.toggle("hide");
+    }, 3000);
+  } else {
+    for (let [key, value] of Object.entries(data)) {
+      if (value !== "") {
+        const idElement = "error" + capitalizeFirstLetter(key);
+        let errorMessage = document.getElementById(idElement);
+        errorMessage.textContent = value;
+        if (checkHideClass(errorMessage)) {
+          errorMessage.classList.remove("hide");
+        }
+      } else {
+        if (checkHideClass(errorMessage)) {
+          errorMessage.classList.add("hide");
+        }
+      }
+    }
+  }
+}
+
+async function addEmployee(formdata) {
+  console.log(formdata);
+  const response = await fetch(BASEURL + "/employees/addEmployee", {
+    method: "POST",
+    header: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formdata),
+  });
+  const data = await response.json();
+  console.log(data);
+  if (data.employee_id) {
+    //delete error messages
+    const errorMessages = document.querySelectorAll(".error__validation");
+    hideErrorMessages(errorMessages);
     newEmployeeMessage.textContent = "Employee added successfully";
     newEmployeeMessage.classList.toggle("hide");
     setTimeout(function () {
@@ -98,4 +136,4 @@ function hideErrorMessages($elements) {
   });
 }
 
-export { addEmployee, updateEmployee, hideErrorMessages };
+export { addEmployeeRow, addEmployee, updateEmployee, hideErrorMessages };
