@@ -81,8 +81,8 @@ async function addEmployee(formdata) {
 }
 
 async function updateEmployee(formdata) {
-  id = formdata[employeeId];
-  const response = await fetch(BASEURL + "/employees/updateEmployee/" + id, {
+  const id = formdata.employeeId;
+  const response = await fetch(BASEURL + "/employees/updateEmployee/", {
     method: "POST",
     header: {
       "Content-Type": "application/json",
@@ -92,30 +92,12 @@ async function updateEmployee(formdata) {
   const data = await response.json();
   console.log(data);
   if (data.employee_id) {
-    //delete error messages
-    const errorMessages = document.querySelectorAll(".error__validation");
-    hideErrorMessages(errorMessages);
     refreshTable(0);
-    newEmployeeMessage.textContent = "Employee added successfully";
+    newEmployeeMessage.textContent = "Employee updated successfully";
     newEmployeeMessage.classList.toggle("hide");
     setTimeout(function () {
       newEmployeeMessage.classList.toggle("hide");
     }, 3000);
-  } else {
-    for (let [key, value] of Object.entries(data)) {
-      if (value !== "") {
-        const idElement = "error" + capitalizeFirstLetter(key);
-        let errorMessage = document.getElementById(idElement);
-        errorMessage.textContent = value;
-        if (checkHideClass(errorMessage)) {
-          errorMessage.classList.remove("hide");
-        }
-      } else {
-        if (checkHideClass(errorMessage)) {
-          errorMessage.classList.add("hide");
-        }
-      }
-    }
   }
 }
 

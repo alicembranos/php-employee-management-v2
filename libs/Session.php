@@ -4,7 +4,7 @@ class Session
 {
     public function __construct()
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) session_start();
     }
 
     public function setAttribute($attribute, $value)

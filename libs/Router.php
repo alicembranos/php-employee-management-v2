@@ -14,7 +14,6 @@ class Router
         $this->setMethod();
         $this->setParam();
         $this->index();
-        
     }
 
     public function getUrl()
@@ -47,33 +46,29 @@ class Router
     //main function to set the requested controller
     public function index()
     {
+        if ($this->controller == 'login' && $this->method == 'login') {
+            $this->initController($this->controller, $this->method);
+            return;
+        }
+
+        //first of all we must check session (no for login method)
+        $isLogged = $this->checkSession();
+        if (!$isLogged) {
+            return;
+        }
 
         if (empty($this->controller)) {
-            //first of all we must check session
-            $isLogged = $this->checkSession();
-
-            if (!$isLogged) {
-                return;
-            }
-
             $controller = 'employees';
             $method = 'dashboard';
             $this->initController($controller, $method);
+            return;
         }
 
         $this->initController($this->controller, $this->method, $this->param);
     }
 
-    //call checkSession from loginController
-    public function checkSession()
-    {
-        $controller = 'login';
-        $method = 'checkSession';
-        $this->initController($controller, $method);
-    }
-
     //initialize controllers
-    public function initController($controller, $method, $param = [])
+    public function initController($controller, $method)
     {
         $controller = ucfirst($controller);
         $fileController = CONTROLLERS . $controller . 'Controller.php';
@@ -96,5 +91,14 @@ class Router
         } else {
             new ErrorController('Oops, something went wrong calling the' . $controller . 'Controller. Please try again.');
         }
+    }
+
+    //call checkSession from loginController
+    public function checkSession()
+    {
+        $session = new LoginController();
+        $session->loadModel('login');
+        $result = $session->checkSessionActive();
+        return $result;
     }
 }

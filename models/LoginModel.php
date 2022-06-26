@@ -5,9 +5,8 @@ class LoginModel extends Model
 
     public function checkSessionStatus()
     {
-        if (!isset($_SESSION["userId"])) return false;
-
-        return true;
+        if (isset($_SESSION["userId"])) return true;
+        return false;
     }
 
     public function validateLogin($data)

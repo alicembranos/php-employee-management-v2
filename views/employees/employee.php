@@ -23,8 +23,6 @@ if ($userAdded) {
 }
 ?>
 <form class="container" id="employeeForm" action="" method="post">
-    <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
-    <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <input type="hidden" name="employeeId" value="<?= isset($this->employee) ? $this->employee['employee_id'] : 0 ?>">
     <div class=" row g-3">
         <div class="col">
@@ -84,8 +82,8 @@ if ($userAdded) {
             <input type="text" class="form-control" name="phoneNumber" placeholder="PhoneNumber" aria-label="PhoneNumber" value="<?= isset($this->employee) ? $this->employee['phoneNumber'] : '' ?>">
         </div>
     </div>
-    <button type="button" id="returnButton" class="btn btn-secondary mt-5 return__button">Return</button>
-    <!-- <a href="<?= BASE_URL ?>employees/dashboard" class="btn btn-secondary mt-5 return__button">Return</a> -->
+    <!-- <button type="button" id="returnButton" class="btn btn-secondary mt-5 return__button">Return</button> -->
+    <a href="<?= BASE_URL ?>employees/dashboard" class="btn btn-secondary mt-5 return__button">Return</a>
     <button type="submit" class="btn btn-info mt-5 submit__button">Submit</button>
 </form>
 

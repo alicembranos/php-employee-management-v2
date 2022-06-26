@@ -25,6 +25,7 @@ class Controller
     //redirect php function
     public function redirect($link)
     {
+        echo 'Location: ' . BASE_URL  . trim($link, '/');
         header('Location: ' . BASE_URL  . trim($link, '/'));
     }
 }

@@ -30,10 +30,19 @@ class EmployeesModel extends Model
 
     public function updateEmployee($employee)
     {
+
         try {
+            $employee_id = $employee['employeeId'];
+            unset($employee['employeeId']);
+            $sql = "UPDATE employees SET " . implode(', ', array_map(function ($key) {
+                return "$key = :$key";
+            }, array_keys($employee))) . " WHERE employee_id = :employee_id;";
+            $employee['employee_id'] = $employee_id;
+            $this->query($sql, $employee, false);
         } catch (PDOException $e) {
             new ErrorController($e->getMessage());
-        }
+        }   
+        return $employee;
     }
 
     public function deleteEmployee($id)

@@ -34,11 +34,8 @@ class EmployeesController extends Controller
     public function addEmployee()
     {
         $employee = json_decode(file_get_contents("php://input"), true);
-        if (isset($employee['employeeId'])) {
-            array_shift($employee);
-        }
         $error = [];
-        
+
         //validation form inputs
         //Validate username on letters/numbers
         $nameValidation = "/^[a-zA-Z0-9]*$/";
@@ -80,6 +77,12 @@ class EmployeesController extends Controller
         } else {
             echo json_encode($this->model->addEmployee($employee));
         }
+    }
+
+    public function updateEmployee()
+    {
+        $employee = json_decode(file_get_contents("php://input"), true);
+        echo json_encode(($this->model->updateEmployee($employee)));
     }
 
     public function deleteEmployee($id)

@@ -23,7 +23,7 @@ if (isset($_SESSION["userAdded"])) {
     }
     ?>
 
-    <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
+    <!-- <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart"> -->
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table-sm" id="tableData">
 

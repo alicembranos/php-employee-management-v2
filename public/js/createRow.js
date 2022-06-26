@@ -1,21 +1,23 @@
 import { BASEURL } from "./index.js";
 
-function createRow(element, i) {
-  //Create row, add class and id for the future listener
+//create tbody content
+function createRow(element, id, i) {
+  
   let tableRow = document.createElement("tr");
   tableRow.classList.add("tbody__emplpoyees--tr");
-  tableRow.setAttribute("id", i);
+  tableRow.setAttribute("id", id);
+  tableRow.setAttribute("index", i);
   let employeeForm = document.createElement("form");
-  employeeForm.setAttribute("id", "employeeForm-" + i);
+  employeeForm.setAttribute("id", "employeeForm-" + id);
   employeeForm.setAttribute(
     "action",
-    BASEURL + "employees/getEmployeeInfo/" + String(i)
+    BASEURL + "employees/getEmployeeInfo/" + String(id)
   );
   employeeForm.setAttribute("method", "post");
   let inputHidden = document.createElement("input");
   inputHidden.setAttribute("type", "hidden");
   inputHidden.setAttribute("name", "info");
-  inputHidden.setAttribute("value", i);
+  inputHidden.setAttribute("value", id);
 
   //we create the tablecells
   let tableCellName = document.createElement("td");
@@ -47,8 +49,8 @@ function createRow(element, i) {
   formButton.setAttribute("action", "./library/employeeController.php");
   formButton.setAttribute("method", "post");
   btnDel.setAttribute("name", "delete");
-  btnDel.setAttribute("value", i);
-  btnDel.setAttribute("id", "btnDel-" + i);
+  btnDel.setAttribute("value", id);
+  btnDel.setAttribute("id", "btnDel-" + id);
 
   // get the employer name and add to the cell
   tableCellName.append(element.name);
@@ -59,7 +61,7 @@ function createRow(element, i) {
   tableCellState.append(element.state);
   tableCellPostal.append(element.postalCode);
   tableCellPhone.append(element.phoneNumber);
-  tableCellIcon.setAttribute("id", "delete-" + i);
+  tableCellIcon.setAttribute("id", "delete-" + id);
   btnDel.append(icon);
   formButton.appendChild(btnDel);
   tableCellIcon.appendChild(formButton);

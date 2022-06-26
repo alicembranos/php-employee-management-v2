@@ -19,27 +19,28 @@ async function refreshTable(empl) {
         tableBody.removeChild(tr);
       });
     }
-    data.forEach((element) => {
-      //create employee row
-      let row = createRow(element, element.employee_id);
+    //create employee row
+    data.forEach((element, i) => {
+      let row = createRow(element, element.employee_id, i);
       tableBody.appendChild(row);
     });
-    createListeners(); //create listeners for each row
+    createListeners(); //listener to show employee info
     setNextPage(); //set next navigation page
-    confirmDelete(); //add the listener for deleting the employee
+    confirmDelete(); //listener to delete employee
   } catch (error) {
     // console.log(error);
   }
 }
-//setNextPage to stablish the next page to navigate
+
+//set pagination navigation
 function setNextPage() {
   let inputNext = document.getElementById("nextPage");
   let inputBack = document.getElementById("backPage");
 
   let employeesShown = document.querySelectorAll(".tbody__emplpoyees--tr");
   let lastEmployee =
-    employeesShown[employeesShown.length - 1].getAttribute("id");
-  let firstEmployee = employeesShown[0].getAttribute("id");
+    employeesShown[employeesShown.length-1].getAttribute("index");
+  let firstEmployee = employeesShown[0].getAttribute("index");
 
   inputNext.setAttribute("value", lastEmployee);
   inputBack.setAttribute("value", firstEmployee);

@@ -12,22 +12,20 @@ class LoginController extends Controller
 
     public function login()
     {
-
         if (isset($_POST)) {
-
             if (!$this->validation($_POST)) return;
-
             $loggedUser = $this->model->validateLogin($_POST);
             if (!is_null($loggedUser)) {
                 $this->session->setAttribute('userId', $loggedUser['user_id']);
                 $this->session->setAttribute('email', $loggedUser['email']);
                 $this->session->setAttribute('name', $loggedUser['name']);
                 $this->session->setAttribute('timeout', time());
-
                 $this->redirect('employees/dashboard');
+                return;
             } else {
                 $this->view->msgLogin = 'Please enter a valid email and/or password.';
                 $this->renderLogin();
+                return;
             }
         }
     }
@@ -46,20 +44,25 @@ class LoginController extends Controller
     }
 
     //check if user session is active
-    public function checkSession()
+    public function checkSessionActive()
     {
-
         if ($this->model->checkSessionStatus()) {
-            $this->redirect('employees/dashboard');
+            // $this->redirect('employees/dashboard');
             return true;
+        } else {
+            $this->renderLogin();
+            return false;
         }
-
-        $this->renderLogin();
-        return false;
     }
 
     public function renderLogin()
     {
         $this->view->renderView('login/login');
+    }
+
+    public function logout()
+    {
+        $this->session->destroySession();
+        $this->renderLogin();
     }
 }
