@@ -1,11 +1,26 @@
 <?php
 
+require_once LIBS . 'Session.php';
+
 class LoginModel extends Model
 {
 
     public function checkSessionStatus()
     {
         if (isset($_SESSION["userId"])) return true;
+        return false;
+    }
+
+    public function sessionTimeLimit()
+    {
+        if (isset($_SESSION['timeout'])) {
+            $limitTime = 60 * 1; //60 seconds x 10'
+            if (time() - $_SESSION['timeout'] >= $limitTime) {
+                $this->session = new Session();
+                $this->session->destroySession();
+                return true;
+            }
+        }
         return false;
     }
 

@@ -6,6 +6,19 @@ const BASEURL = document.getElementById("header").dataset["base_url"];
 //display table
 await refreshTable(0);
 
+const checkSession = async () => {
+  console.log("entro");
+  const response = await fetch(BASEURL + "login/checkTimeLimit");
+  const data = await response.text();
+  if (data) {
+    window.location.href = BASEURL + "/index.php";
+  }
+};
+
+setInterval(() => {
+  checkSession();
+}, 10000); //every ten seconds
+
 async function refreshTable(empl) {
   try {
     const response = await fetch(
@@ -39,7 +52,7 @@ function setNextPage() {
 
   let employeesShown = document.querySelectorAll(".tbody__emplpoyees--tr");
   let lastEmployee =
-    employeesShown[employeesShown.length-1].getAttribute("index");
+    employeesShown[employeesShown.length - 1].getAttribute("index");
   let firstEmployee = employeesShown[0].getAttribute("index");
 
   inputNext.setAttribute("value", lastEmployee);

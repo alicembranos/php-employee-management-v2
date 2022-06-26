@@ -51,7 +51,7 @@ class Router
             return;
         }
 
-        //first of all we must check session (no for login method)
+        //check session (not for login method)
         $isLogged = $this->checkSession();
         if (!$isLogged) {
             return;

@@ -47,7 +47,6 @@ class LoginController extends Controller
     public function checkSessionActive()
     {
         if ($this->model->checkSessionStatus()) {
-            // $this->redirect('employees/dashboard');
             return true;
         } else {
             $this->renderLogin();
@@ -55,14 +54,23 @@ class LoginController extends Controller
         }
     }
 
-    public function renderLogin()
+    public function checkTimeLimit()
     {
-        $this->view->renderView('login/login');
+        if ($this->model->sessionTimeLimit()) {
+            return 1;
+            // $this->redirect('index.php');
+        }
+        return 0;
     }
 
     public function logout()
     {
         $this->session->destroySession();
         $this->renderLogin();
+    }
+
+    public function renderLogin()
+    {
+        $this->view->renderView('login/login');
     }
 }
