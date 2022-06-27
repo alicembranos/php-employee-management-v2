@@ -14,7 +14,7 @@ class LoginModel extends Model
     public function sessionTimeLimit()
     {
         if (isset($_SESSION['timeout'])) {
-            $limitTime = 60 * 10; //60 seconds x 10'
+            $limitTime = 60 * 100; //60 seconds x 10'
             if (time() - $_SESSION['timeout'] >= $limitTime) {
                 $this->session = new Session();
                 $this->session->destroySession();

@@ -91,12 +91,12 @@ if (isset($_SESSION["userAdded"])) {
 <script>
     const dashboardTag = document.getElementById("dashboardTag");
     const employeeTag = document.getElementById("employeeTag");
-    const userTag = document.getElementById("userTag");
+    const dashboardSportTag = document.getElementById("dashboardSportTag");
     // Adds the class to give style depending the page you are
     if (window.location.href.includes("employees/dashboard")) {
         dashboardTag.classList.add("navBar-active");
         employeeTag.classList.remove("navBar-active");
-        userTag.classList.remove("navBar-active");
+        dashboardSportTag.classList.remove("navBar-active");
     }
 </script>
 

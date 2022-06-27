@@ -15,9 +15,9 @@
 <body>
     <header id="header" data-base_url="<?= BASE_URL ?>">
         <div class="navBar__container container-fluid">
-            <div class="col navBar__menu--logo"><img src="../assets/img/buddies-logo.png" alt=""></div>
+            <div class="col navBar__menu--logo"><img src="../public/img/buddies-logo.png" alt=""></div>
             <div class="row navBar__menu--buttons">
-                <div id="dashboardTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>sport/sportDashboard">Sport Dashboard</a></div>
+                <div id="dashboardSportTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>sport/sportDashboard">Sport Dashboard</a></div>
                 <div id="dashboardTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>employees/dashboard">Employees Dashboard</a></div>
                 <div id="employeeTag" class="col navBar__menu--employee"><a href="<?= BASE_URL ?>employees/employee">Employees</a></div>
                 <form class="button__logout col" action="<?= BASE_URL ?>login/logout" method="post">
