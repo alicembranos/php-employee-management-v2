@@ -47,7 +47,7 @@ class SportModel extends Model
             $sql = "UPDATE sessions SET date_to = ?, goal = ? WHERE session_id = ?";
             $this->query($sql, $data, false);
             $sql = "SELECT * FROM sessions WHERE session_id = $session_id";
-            $result = $this->query($sql);
+            $result = $this->query($sql)[0];
             return $result;
         } catch (PDOException $e) {
             new ErrorController($e->getMessage());

@@ -9,7 +9,7 @@ require_once VIEWS . 'header.php';
 
 <section>
     <form action="" id="goalForm" method="POST">
-        <input type="hidden" name="firstEndDate" id="firstEndDate" value>
+        <input type="hidden" name="beginDate" id="beginDate" value>
         <label for="days"><input type="number" id="days" name="days"> days</label>
         <label for="kilometers"><input type="number" id="kilometers"> Km</label>
         <button type="submit">Save</button>

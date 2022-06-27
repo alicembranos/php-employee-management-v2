@@ -12,7 +12,7 @@ const getSession = async () => {
       updateSessionNumber(data.session_id);
       setGoal(data.goal);
       daysRemaining(data.date_to);
-      updateEndDateGoal(data.date_to);
+      updateFirstDateGoal(data.date_from);
       await summary("steps", data.session_id);
       await summary("calories", data.session_id);
       await summary("weight", data.session_id);
@@ -107,9 +107,9 @@ const updateSessionNumber = (sessionId) => {
   sessionNumber.value = parseInt(sessionId);
 };
 
-const updateEndDateGoal = (date) => {
-  const endDateGoal = document.getElementById("firstEndDate");
-  endDateGoal.value = date;
+const updateFirstDateGoal = (date) => {
+  const firstDateGoal = document.getElementById("beginDate");
+  firstDateGoal.value = date;
 };
 
 const setGoal = (goal) => {
@@ -170,41 +170,47 @@ const unitConversion = (unit, number) => {
 };
 
 const updateGoal = async () => {
-    const firstEndDate = document.getElementById("firstEndDate").value;
-    const daysToAdd = document.getElementById("days").value;
-    const newEndDate = addDays(firstEndDate, daysToAdd);
-    const newGoalKm = document.getElementById("kilometers").value;
-    const sessionId = document.getElementById('session').value;
-    const info = {
-        a: newEndDate,
-        b: newGoalKm,
-        c: sessionId
-    };
-    try {
-        const response = await fetch(BASEURL + "sport/updateGoal", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(info),
-        });
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-}
+  const beginDate = document.getElementById("beginDate").value;
+  const daysToAdd = document.getElementById("days").value;
+  console.log(daysToAdd);
+  console.log(beginDate);
+  const newEndDate = addDays(beginDate, daysToAdd);
+  console.log(newEndDate);
+  const newGoalKm = document.getElementById("kilometers").value;
+  const sessionId = document.getElementById("session").value;
+  const info = {
+    a: newEndDate,
+    b: newGoalKm,
+    c: sessionId,
+  };
+  try {
+    const response = await fetch(BASEURL + "sport/updateGoal", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(info),
+    });
+    const data = await response.json();
+    console.log(data);
+    setGoal(data.goal);
+    daysRemaining(data.date_to);
+    kmLeft();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const addDays = (date, days) => {
   let result = new Date(date);
-  result.setDate(result.getDate() + days);
-  return result;
+  result.setDate(result.getDate() + parseInt(days));
+  return new Date(result).toISOString().split("T")[0];
 };
 
 getSession();
 
 goalForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    updateGoal();
+  e.preventDefault();
+  updateGoal();
 });
