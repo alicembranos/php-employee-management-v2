@@ -101,3 +101,73 @@ INSERT INTO employees (name, lastName, email, gender, age, city, streetAddress, 
     60517,
     "91253876654"
 );
+
+INSERT INTO sessions (date_from, date_to, goal)
+VALUES('2022-6-27', '2022-7-05', 400);
+
+
+INSERT INTO sport_data (session_id, employee_id, distance, steps, calories, weight) VALUES 
+(
+    1,
+    1,
+    15,
+    15000,
+    1550,
+    1.5
+),
+(
+    1,
+    2,
+    22,
+    20000,
+    1300,
+    1
+),
+(
+    1,
+    3,
+    10,
+    8000,
+    1100,
+    0.5
+),
+(
+    1,
+    4,
+    13,
+    11000,
+    1600,
+    0.75
+),
+(
+    1,
+    5,
+    30,
+    16700,
+    1600,
+    2
+),
+(
+    1,
+    6,
+    14,
+    7560,
+    867,
+    0
+),
+(
+    1,
+    7,
+    16,
+    14300,
+    1450,
+    1
+),
+(
+    1,
+    8,
+    15,
+    13564,
+    1453,
+    1.75
+);

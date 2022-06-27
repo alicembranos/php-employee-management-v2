@@ -23,8 +23,6 @@ if (isset($_SESSION["userAdded"])) {
     }
     ?>
 
-    <!-- <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart"> -->
-    <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table-sm" id="tableData">
 
         <!-- THEAD -->
@@ -93,10 +91,12 @@ if (isset($_SESSION["userAdded"])) {
 <script>
     const dashboardTag = document.getElementById("dashboardTag");
     const employeeTag = document.getElementById("employeeTag");
+    const userTag = document.getElementById("userTag");
     // Adds the class to give style depending the page you are
     if (window.location.href.includes("employees/dashboard")) {
         dashboardTag.classList.add("navBar-active");
         employeeTag.classList.remove("navBar-active");
+        userTag.classList.remove("navBar-active");
     }
 </script>
 
