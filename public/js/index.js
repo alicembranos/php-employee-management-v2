@@ -11,7 +11,7 @@ const checkSession = async () => {
   const response = await fetch(BASEURL + "login/checkTimeLimit");
   const data = await response.text();
   if (data) {
-    window.location.href = BASEURL + "/index.php";
+    window.location.href = BASEURL + "index.php";
   }
 };
 
