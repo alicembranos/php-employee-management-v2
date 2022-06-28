@@ -1,5 +1,5 @@
 .container {
-  width: 94%;
+  width: 80rem;
   display: flex;
   justify-content: space-between;
   max-width: initial;
@@ -34,6 +34,7 @@
   padding: 0px 10px;
   font-weight: 700;
 }
+
 .resumeText {
   display: flex;
   background: #cbcbcb;
@@ -44,6 +45,21 @@
   justify-content: space-evenly;
   padding: 10px 20px;
 }
+
+.resumeText__p{
+  font-size: 20px;
+  text-align: center;
+}
+
+.ranking{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 300px;
+  width: 80rem;
+  border: 1px solid red;
+}
+
 
 .card-counter {
   box-shadow: 2px 2px 10px #dadada;

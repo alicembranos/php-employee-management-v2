@@ -21,13 +21,21 @@ require_once VIEWS . 'header.php';
 
     </div>
     <div class="resumeText">
-        <p>You need 2000 KM and 2 days
-            to complete the goal.</p>
+        <p class="resumeText__p">You need <span class="resumeText__highlighs">2000 KM</span> and <span class="resumeText__highlighs"> 2 days </span>to complete the goal.</p>
     </div>
 </div>
 <div class="distance"></div>
 <div class="ranking">
-    <div class="steps"></div>
+    <div class="rankingType">
+        <div class="rankingHeader">
+            <img class="rankingTotal__img" src="../../public/img/Steps.png" alt="Steps">
+            <p class="rankingTotal__p"></p>
+            <p class="rankingText__p"></p>
+        </div>
+        <div class="rankingBody">
+
+        </div>
+    </div>
     <div class="calories"></div>
     <div class="weight"></div>
 </div>
