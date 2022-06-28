@@ -16,13 +16,15 @@
     <header id="header" data-base_url="<?= BASE_URL ?>">
         <div class="navBar__container container-fluid">
             <div class="col navBar__menu--logo"><img src="../public/img/buddies-logo.png" alt=""></div>
-            <div class="row navBar__menu--buttons">
-                <div id="dashboardSportTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>sport/sportDashboard">Dashboard</a></div>
-                <div id="dashboardTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>employees/dashboard">Employees</a></div>
-                <div id="employeeTag" class="col navBar__menu--employee"><a href="<?= BASE_URL ?>employees/employee">Managments</a></div>
-                <form class="button__logout col" action="<?= BASE_URL ?>login/logout" method="post">
-                    <button class="navBar__button--logout" type="submit" name="destroy">LOGOUT <i class='bx bx-log-out bx-rotate-180'></i></button>
-                </form>
+            <div class="col">
+                <div class="row navBar__menu--buttons">
+                    <div id="dashboardSportTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>sport/sportDashboard">DASHBOARD</a></div>
+                    <div id="dashboardTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>employees/dashboard">EMPLOYEES</a></div>
+                    <div id="employeeTag" class="col navBar__menu--dashboard"><a href="<?= BASE_URL ?>employees/employee">MANAGEMENTS</a></div>
+                    <form class="button__logout col" action="<?= BASE_URL ?>login/logout" method="post">
+                        <button class="navBar__button--logout" type="submit" name="destroy">LOGOUT <i class='bx bx-log-out bx-rotate-180'></i></button>
+                    </form>
+                </div>
             </div>
         </div>
     </header>
