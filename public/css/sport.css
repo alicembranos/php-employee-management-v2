@@ -8,7 +8,9 @@
 
 .goal {
   display: flex;
-  background: #232235;
+  background-image: url("../img/km.jpg");
+  background-size: cover;
+  background-position: center;
   color: white;
   margin-top: 10px;
   border-radius: 4px;
@@ -16,15 +18,19 @@
   justify-content: space-evenly;
   padding: 10px 20px;
 }
-
+.goalText {
+  margin: auto;
+}
 .goalDays {
   text-align: center;
+  margin: auto;
 }
 
 .mediumPoppins {
   font-size: 20px;
   font-family: sans-serif;
   font-weight: 500;
+  margin: auto;
 }
 
 .calendarPoppins {
@@ -33,11 +39,31 @@
   font-size: xxx-large;
   padding: 0px 10px;
   font-weight: 700;
+  margin: auto;
 }
 
+.daysPoppins {
+  font-size: 26px;
+  font-weight: bold;
+  margin: auto;
+}
+.kmPoppins {
+  margin: auto;
+  font-size: 30px;
+  line-height: 0.8;
+  font-family: inherit;
+  font-weight: bolder;
+}
+
+.kmRestPoppins {
+  margin: auto;
+}
+/* Resume Text */
 .resumeText {
   display: flex;
-  background: #cbcbcb;
+  background-image: url("../img/buddyGray.jpg");
+  background-size: cover;
+  background-position: center;
   color: #232235;
   margin-top: 10px;
   border-radius: 4px;
@@ -46,20 +72,75 @@
   padding: 10px 20px;
 }
 
-.resumeText__p{
+.goalResumeText {
+  font-size: 35px;
+  text-align: right;
+  padding-left: 20%;
+  margin: auto;
+  font-weight: 700;
+}
+
+/* Distance */
+.distance {
+  background-image: url("../img/team.jpg");
+  width: 80rem;
+  margin-top: 10px;
+  background-size: cover;
+  height: 200px;
+  border-radius: 11px;
+}
+
+.resumeText__p {
   font-size: 20px;
   text-align: center;
 }
 
-.ranking{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 300px;
-  width: 80rem;
-  border: 1px solid red;
+.coverage {
+  font-size: 30px;
+  width: 50%;
+  color: whitesmoke;
+  margin: auto;
+  padding-top: 50px;
 }
 
+/* Ranking */
+.ranking {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 400px;
+  width: 80rem;
+  border: 1px solid red;
+  gap: 0.5rem;
+}
+
+.rankingType {
+  height: 100%;
+  border: 1px solid red;
+  flex: 1 0 0;
+  /* margin-right: 0.5rem; */
+}
+
+.rankingHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.rankingTotal__img {
+  height: 50px;
+  width: 50px;
+  flex:1 0 0;
+}
+
+.rankingTotal__p {
+  flex-basis: 1 0 0;
+}
+
+.rankingText__p {
+  flex-basis: 1 0 0;
+}
 
 .card-counter {
   box-shadow: 2px 2px 10px #dadada;

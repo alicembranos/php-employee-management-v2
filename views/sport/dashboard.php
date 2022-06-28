@@ -11,33 +11,51 @@ require_once VIEWS . 'header.php';
     <div class="goal">
         <div class="goalText">
             <p class="mediumPoppins">GOAL</p>
-            <p>20.000 KM</p>
-            <p>16.000 KM/20.000 KM</p>
+            <p class="kmPoppins">20.000 KM</p>
+            <p class="kmRestPoppins">16.000 KM/20.000 KM</p>
+            <progress id="file" max="100" value="70"> 70% </progress>
         </div>
         <div class="goalDays">
             <p class="calendarPoppins">14</p>
-            <p>days</p>
+            <p class="daysPoppins">DAYS</p>
         </div>
 
     </div>
     <div class="resumeText">
-        <p class="resumeText__p">You need <span class="resumeText__highlighs">2000 KM</span> and <span class="resumeText__highlighs"> 2 days </span>to complete the goal.</p>
+        <p class="goalResumeText">You need <strong>2000 KM</strong> and <strong>2 days</strong> to complete the goal.</p>
     </div>
 </div>
-<div class="distance"></div>
+<div class="distance">
+    <p class="coverage">Your team has covered a distance of 16,433 km in 10 days</p>
+</div>
 <div class="ranking">
     <div class="rankingType">
         <div class="rankingHeader">
-            <img class="rankingTotal__img" src="../../public/img/Steps.png" alt="Steps">
+            <p><img class="rankingTotal__img" src="../public/img/Steps.png" alt="Steps"></p>
             <p class="rankingTotal__p"></p>
             <p class="rankingText__p"></p>
         </div>
         <div class="rankingBody">
-
         </div>
     </div>
-    <div class="calories"></div>
-    <div class="weight"></div>
+    <div class="rankingType">
+        <div class="rankingHeader">
+            <p><img class="rankingTotal__img" src="../public/img/calories.png" alt="Steps"></p>
+            <p class="rankingTotal__p"></p>
+            <p class="rankingText__p"></p>
+        </div>
+        <div class="rankingBody">
+        </div>
+    </div>
+    <div class="rankingType">
+        <div class="rankingHeader">
+            <p><img class="rankingTotal__img" src="../public/img/weight-scale.png" alt="Steps"></p>
+            <p class="rankingTotal__p"></p>
+            <p class="rankingText__p"></p>
+        </div>
+        <div class="rankingBody">
+        </div>
+    </div>
 </div>
 
 <!-- <section>
