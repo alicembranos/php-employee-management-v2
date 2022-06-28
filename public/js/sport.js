@@ -82,19 +82,29 @@ const ranking = async (type, idSession) => {
     }
     //create rows
     let rankingContent = "";
+    let index = 1;
     Array.from(data).map((user) => {
+      let classSpan;
+      index >= 4
+        ? (classSpan = "rankingPosition__red")
+        : "rankingPosition__green";
       rankingContent +=
-        "<li><a href='" +
+        "<li class='ranking__li'><a href='" +
         BASEURL +
         "employees/getEmployeeInfo/" +
         String(user.employee_id) +
-        "'><p>" +
+        "' class='employee__link'><span class='" +
+        classSpan +
+        "'>#" +
+        index +
+        "</span><p class='rankingName__p'>" +
         user.name +
-        "<span> " +
+        "</p><span class='totalQuantity__span'> " +
         user["1"] +
         " " +
         unit(type) +
-        "</span></p></a></li>";
+        "</span></a></li>";
+      index++;
     });
     rankingElement.innerHTML = rankingContent;
   } catch (error) {

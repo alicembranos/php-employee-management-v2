@@ -30,9 +30,9 @@ require_once VIEWS . 'header.php';
                             <p><span class="count-steps" id="steps">12</span></p>
                             <span class="step-name">Steps</span>
                         </div>
-                        <ol class="ranking" id="stepsRanking">
+                        <ul class="ranking" id="stepsRanking">
 
-                        </ol>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -42,8 +42,8 @@ require_once VIEWS . 'header.php';
                             <p><span class="count-calories" id="calories">599</span> Kcal</p>
                             <span class="claories-name">Calories</span>
                         </div>
-                        <ol class="ranking" id="caloriesRanking">
-                        </ol>
+                        <ul class="ranking" id="caloriesRanking">
+                        </ul>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -53,8 +53,8 @@ require_once VIEWS . 'header.php';
                             <p>-<span class="count-weight" id="weight">6875</span> Kg</p>
                             <span class="weight-name">Weight</span>
                         </div>
-                        <ol class="ranking" id="weightRanking">
-                        </ol>
+                        <ul class="ranking" id="weightRanking">
+                        </ul>
                     </div>
                 </div>
             </div>
