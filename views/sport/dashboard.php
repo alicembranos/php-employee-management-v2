@@ -7,53 +7,83 @@ require_once VIEWS . 'header.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 <script src="<?= JS ?>sport.js" type="module"></script>
 
-<div class="container">
+<div class="container hide" id="sessionContent">
+    <input type="hidden" name="session" id="session" value="">
     <div class="goal">
+        <form action="" id="goalForm" class="hide" method="POST">
+            <input type="hidden" name="beginDate" id="beginDate" value>
+            <label for="days"><input type="number" id="days" name="days"> days</label>
+            <label for="kilometers"><input type="number" id="kilometers"> Km</label>
+            <button type="submit">Save</button>
+        </form>
         <div class="goalText">
             <p class="mediumPoppins">GOAL</p>
-            <p class="kmPoppins">20.000 KM</p>
-            <p class="kmRestPoppins">16.000 KM/20.000 KM</p>
-            <progress id="file" max="100" value="70"> 70% </progress>
+            <div class="kmPoppins">
+                <p id="kmGoal"></p>
+                <p>KM</p>
+            </div>
+            <div class="kmRestPoppins">
+                <p><span id="distance"></span> KM / </p>
+                <p><span id="kmGoal2"></span> KM</p>
+            </div>
+            <progress id="file" max="100" value="70"></progress>
         </div>
         <div class="goalDays">
-            <p class="calendarPoppins">14</p>
+            <p class="calendarPoppins" id="daysRemaining1"></p>
             <p class="daysPoppins">DAYS</p>
         </div>
 
     </div>
     <div class="resumeText">
-        <p class="goalResumeText">You need <strong>2000 KM</strong> and <strong>2 days</strong> to complete the goal.</p>
+        <p class="goalResumeText">You need <strong id="kmRemaining"></strong> and <strong id="daysRemaining2"></strong> to complete the goal.</p>
     </div>
 </div>
 <div class="distance">
-    <p class="coverage">Your team has covered a distance of <mark class="yellow">16,433 km</mark> in <mark class="yellow">10 days</mark> </p>
+    <p class="coverage">Your team has covered a distance of <mark id="distance2" class="yellow"></mark> in <mark class="yellow" id="daysCovered"></mark> </p>
 </div>
 <div class="ranking">
     <div class="rankingType">
         <div class="rankingHeader">
-            <p><img class="rankingTotal__img" src="../public/img/Steps.png" alt="Steps"></p>
-            <p class="rankingTotal__p"></p>
-            <p class="rankingText__p"></p>
+            <p class="rankingTotal__img"><img src="../public/img/Steps.png" alt="Steps"></p>
+            <p class="rankingTotal__p" id="steps">85.762</p>
+            <div class="rankingText__p">
+                <p>Buddies</p>
+                <p>Total Steps</p>
+            </div>
         </div>
         <div class="rankingBody">
+            <ul class="ranking__ul" id="stepsRanking">
+            </ul>
         </div>
     </div>
     <div class="rankingType">
         <div class="rankingHeader">
-            <p><img class="rankingTotal__img" src="../public/img/calories.png" alt="Steps"></p>
-            <p class="rankingTotal__p"></p>
-            <p class="rankingText__p"></p>
+            <p class="rankingTotal__img"><img src="../public/img/calories.png" alt="Steps"></p>
+            <p class="rankingTotal__p" id="calories">2.102</p>
+            <div class="rankingText__p">
+                <p>Buddies</p>
+                <p>Total Calories</p>
+            </div>
         </div>
         <div class="rankingBody">
+            <ul class="ranking__ul" id="caloriesRanking">
+
+            </ul>
         </div>
     </div>
     <div class="rankingType">
         <div class="rankingHeader">
-            <p><img class="rankingTotal__img" src="../public/img/weight-scale.png" alt="Steps"></p>
-            <p class="rankingTotal__p"></p>
-            <p class="rankingText__p"></p>
+            <p class="rankingTotal__img"><img src="../public/img/weight-scale.png" alt="Steps"></p>
+            <p class="rankingTotal__p" id="weight">15,4</p>
+            <div class="rankingText__p">
+                <p>Buddies</p>
+                <p>Weight Loss</p>
+            </div>
         </div>
         <div class="rankingBody">
+            <ul class="ranking__ul" id="weightRanking">
+
+            </ul>
         </div>
     </div>
 </div>

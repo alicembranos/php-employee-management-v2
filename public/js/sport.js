@@ -21,6 +21,7 @@ const getSession = async () => {
       await ranking("calories", data.session_id);
       await ranking("weight", data.session_id);
       kmLeft();
+      daysUsed();
       sessionContent.classList.contains("hide")
         ? toogleDisplay(sessionContent)
         : "";
@@ -83,11 +84,13 @@ const ranking = async (type, idSession) => {
     //create rows
     let rankingContent = "";
     let index = 1;
+    let classSpan="";
     Array.from(data).map((user) => {
-      let classSpan;
-      index >= 4
-        ? (classSpan = "rankingPosition__red")
-        : "rankingPosition__green";
+      if (index < 4) {
+        classSpan = "rankingPosition__green";
+      } else {
+        classSpan = "rankingPosition__red";
+      }
       rankingContent +=
         "<li class='ranking__li'><a href='" +
         BASEURL +
@@ -124,9 +127,11 @@ const updateFirstDateGoal = (date) => {
 
 const setGoal = (goal) => {
   const goalText = document.getElementById("kmGoal");
+  const goalText2 = document.getElementById("kmGoal2");
   const kilometers = document.getElementById("kilometers");
   kilometers.value = goal;
   goalText.textContent = goal;
+  goalText2.textContent = goal;
 };
 
 const daysRemaining = (finnishDate) => {
@@ -134,18 +139,40 @@ const daysRemaining = (finnishDate) => {
   const endDate = new Date(finnishDate);
   const diffTime = Math.abs(endDate - currentDate);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  const daysRemaining = document.getElementById("daysRemaining");
+  const daysRemaining1 = document.getElementById("daysRemaining1");
+  const daysRemaining2= document.getElementById("daysRemaining2");
   const daysToAdd = document.getElementById("days");
   daysToAdd.value = diffDays;
-  daysRemaining.textContent = diffDays;
+  daysRemaining1.textContent = diffDays;
+  daysRemaining2.textContent = diffDays + ' days';
+};
+
+const daysUsed = () => {
+  const beginDateStored = document.getElementById("beginDate").value;
+  const currentDate = new Date();
+  const beginDate = new Date(beginDateStored);
+  const diffTime = Math.abs(currentDate - beginDate);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const daysCovered = document.getElementById('daysCovered');
+  daysCovered.textContent = diffDays + ' days';
+
 };
 
 const kmLeft = async () => {
   const kmGoal = parseInt(document.getElementById("kmGoal").textContent);
   const distance = parseInt(document.getElementById("distance").textContent);
   const kmRemaining = document.getElementById("kmRemaining");
-  kmRemaining.textContent = kmGoal - distance;
+  const distance2 = document.getElementById('distance2');
+  distance2.textContent = distance + ' km';
+  kmRemaining.textContent = kmGoal - distance + ' KM';
+  percentageKm((kmGoal - distance), kmGoal);
 };
+
+const percentageKm = (kmCovered, kmGoal) => {
+  const percentage = Math.round((kmCovered / kmGoal) * 100);
+  const file = document.getElementById('file');
+  file.value = percentage;
+}
 
 const unit = (type) => {
   switch (type) {
@@ -182,8 +209,6 @@ const unitConversion = (unit, number) => {
 const updateGoal = async () => {
   const beginDate = document.getElementById("beginDate").value;
   const daysToAdd = document.getElementById("days").value;
-  console.log(daysToAdd);
-  console.log(beginDate);
   const newEndDate = addDays(beginDate, daysToAdd);
   console.log(newEndDate);
   const newGoalKm = document.getElementById("kilometers").value;
@@ -220,7 +245,7 @@ const addDays = (date, days) => {
 
 getSession();
 
-goalForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  updateGoal();
-});
+// goalForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   updateGoal();
+// });
