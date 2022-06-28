@@ -57,8 +57,8 @@ class LoginController extends Controller
     public function checkTimeLimit()
     {
         if ($this->model->sessionTimeLimit()) {
-            return 1;
-            // $this->redirect('index.php');
+            // return 1;
+            $this->redirect('index.php');
         }
         return 0;
     }

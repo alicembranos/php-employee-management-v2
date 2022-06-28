@@ -1,6 +1,7 @@
 import { refreshTable, BASEURL } from "./index.js";
 
 async function addEmployeeRow(formdata, form) {
+  console.log(formdata);
   const response = await fetch(BASEURL + "/employees/addEmployee", {
     method: "POST",
     header: {

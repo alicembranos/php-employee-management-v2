@@ -37,8 +37,7 @@ class EmployeesController extends Controller
         if (array_key_exists("employeeId", $employee)) {
             $employee_id = array_shift($employee);
         }
-
-        $error = [];
+        $error = array();
 
         //validation form inputs
         //Validate username on letters/numbers

@@ -60,7 +60,7 @@ class EmployeesModel extends Model
         try {
             $sql = "INSERT INTO employees (" . implode(', ', array_keys($employee)) . ") VALUES (" . implode(', ', array_map(function ($key) {
                 return ":$key";
-            }, array_keys($employee))) . ")";
+            }, array_keys($employee))) . ");";
             $this->query($sql, $employee, false);
             $sql = "SELECT * FROM employees WHERE email = ?";
             return $this->query($sql, [$employee['email']])[0];
