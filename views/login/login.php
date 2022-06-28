@@ -12,7 +12,7 @@
 
 <body>
     <div class="login__container--box">
-        <h2 class="login__container--title">LOGIN</h2>
+        <h2 class="login__container--title"><img src="../public/img/buddies-logo.png" class="logoLogin" alt="Logo"></h2>
         <form class="login__form" action="<?= BASE_URL . 'login/login' ?>" method="post">
             <div class="user__input">
                 <label for="">Email address</label>

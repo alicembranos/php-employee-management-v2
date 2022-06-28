@@ -29,7 +29,7 @@ body {
     align-items: center;
     width: 24rem;
     padding: 2.4rem;
-    background: #0056a7;
+    background: #202020;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
     border-radius: 0.6rem;
 }
@@ -52,7 +52,7 @@ body {
     position: absolute;
     top: 0.8rem;
     left: 15.5rem;
-    color: #a7edff;
+    color: #ffae00;
 }
 
 .login__container--box .user__input input {
@@ -73,7 +73,7 @@ body {
     left: 0;
     padding: 0.6rem 0;
     font-size: .75rem;
-    color: #a7edff;
+    color: #ffae00;
     pointer-events: none;
 }
 
@@ -87,14 +87,14 @@ body {
     height: 2rem;
     margin-top: 1rem;
     border-radius: 0.3rem;
-    border: 0.13rem solid #a7edff;
+    border: 0.13rem solid #ffae00;
     background: transparent;
     font-size: 0.9rem;
-    color: #a7edff;
+    color: #ffae00;
 }
 
 .login__user--button:hover {
-    background-color: #a7edff;
+    background-color: #ffae00;
     font-weight: 700;
     color: #0056a7;
     cursor: pointer;
@@ -143,4 +143,8 @@ body {
     font-size: 0.8rem;
     font-weight: 400;
     color: #fcfcfc;
+}
+
+.logoLogin{
+    width: 70%;
 }
