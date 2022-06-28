@@ -1,5 +1,5 @@
 .container {
-  width: 94%;
+  width: 80rem;
   display: flex;
   justify-content: space-between;
   max-width: initial;
@@ -8,7 +8,9 @@
 
 .goal {
   display: flex;
-  background: #232235;
+  background-image: url("../img/km.jpg");
+  background-size: cover;
+  background-position: center;
   color: white;
   margin-top: 10px;
   border-radius: 4px;
@@ -16,15 +18,19 @@
   justify-content: space-evenly;
   padding: 10px 20px;
 }
-
+.goalText {
+  margin: auto;
+}
 .goalDays {
   text-align: center;
+  margin: auto;
 }
 
 .mediumPoppins {
   font-size: 20px;
   font-family: sans-serif;
   font-weight: 500;
+  margin: auto;
 }
 
 .calendarPoppins {
@@ -33,10 +39,31 @@
   font-size: xxx-large;
   padding: 0px 10px;
   font-weight: 700;
+  margin: auto;
 }
+
+.daysPoppins {
+  font-size: 26px;
+  font-weight: bold;
+  margin: auto;
+}
+.kmPoppins {
+  margin: auto;
+  font-size: 30px;
+  line-height: 0.8;
+  font-family: inherit;
+  font-weight: bolder;
+}
+
+.kmRestPoppins {
+  margin: auto;
+}
+/* Resume Text */
 .resumeText {
   display: flex;
-  background: #cbcbcb;
+  background-image: url("../img/buddyGray.jpg");
+  background-size: cover;
+  background-position: center;
   color: #232235;
   margin-top: 10px;
   border-radius: 4px;
@@ -44,7 +71,30 @@
   justify-content: space-evenly;
   padding: 10px 20px;
 }
+.goalResumeText {
+  font-size: 35px;
+  text-align: right;
+  padding-left: 20%;
+  margin: auto;
+  font-weight: 700;
+}
+/* Distance */
+.distance {
+  background-image: url("../img/team.jpg");
+  width: 80rem;
+  margin-top: 10px;
+  background-size: cover;
+  height: 200px;
+  border-radius: 11px;
+}
 
+.coverage {
+  font-size: 30px;
+  width: 50%;
+  color: whitesmoke;
+  margin: auto;
+  padding-top: 50px;
+}
 .card-counter {
   box-shadow: 2px 2px 10px #dadada;
   margin: 5px;

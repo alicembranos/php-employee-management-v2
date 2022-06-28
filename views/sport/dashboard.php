@@ -11,21 +11,23 @@ require_once VIEWS . 'header.php';
     <div class="goal">
         <div class="goalText">
             <p class="mediumPoppins">GOAL</p>
-            <p>20.000 KM</p>
-            <p>16.000 KM/20.000 KM</p>
+            <p class="kmPoppins">20.000 KM</p>
+            <p class="kmRestPoppins">16.000 KM/20.000 KM</p>
+            <progress id="file" max="100" value="70"> 70% </progress>
         </div>
         <div class="goalDays">
             <p class="calendarPoppins">14</p>
-            <p>days</p>
+            <p class="daysPoppins">DAYS</p>
         </div>
 
     </div>
     <div class="resumeText">
-        <p>You need 2000 KM and 2 days
-            to complete the goal.</p>
+        <p class="goalResumeText">You need <strong>2000 KM</strong> and <strong>2 days</strong> to complete the goal.</p>
     </div>
 </div>
-<div class="distance"></div>
+<div class="distance">
+    <p class="coverage">Your team has covered a distance of 16,433 km in 10 days</p>
+</div>
 <div class="ranking">
     <div class="steps"></div>
     <div class="calories"></div>
