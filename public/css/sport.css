@@ -1,5 +1,48 @@
 .container {
-  width: 100%;
+  width: 94%;
+  display: flex;
+  justify-content: space-between;
+  max-width: initial;
+  gap: 10px;
+}
+
+.goal {
+  display: flex;
+  background: #232235;
+  color: white;
+  margin-top: 10px;
+  border-radius: 4px;
+  width: 40%;
+  justify-content: space-evenly;
+  padding: 10px 20px;
+}
+
+.goalDays {
+  text-align: center;
+}
+
+.mediumPoppins {
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+.calendarPoppins {
+  background: white;
+  color: #232235;
+  font-size: xxx-large;
+  padding: 0px 10px;
+  font-weight: 700;
+}
+.resumeText {
+  display: flex;
+  background: #cbcbcb;
+  color: #232235;
+  margin-top: 10px;
+  border-radius: 4px;
+  width: inherit;
+  justify-content: space-evenly;
+  padding: 10px 20px;
 }
 
 .card-counter {

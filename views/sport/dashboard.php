@@ -7,7 +7,32 @@ require_once VIEWS . 'header.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 <script src="<?= JS ?>sport.js" type="module"></script>
 
-<section>
+<div class="container">
+    <div class="goal">
+        <div class="goalText">
+            <p class="mediumPoppins">GOAL</p>
+            <p>20.000 KM</p>
+            <p>16.000 KM/20.000 KM</p>
+        </div>
+        <div class="goalDays">
+            <p class="calendarPoppins">14</p>
+            <p>days</p>
+        </div>
+
+    </div>
+    <div class="resumeText">
+        <p>You need 2000 KM and 2 days
+            to complete the goal.</p>
+    </div>
+</div>
+<div class="distance"></div>
+<div class="ranking">
+    <div class="steps"></div>
+    <div class="calories"></div>
+    <div class="weight"></div>
+</div>
+
+<!-- <section>
     <form action="" id="goalForm" method="POST">
         <input type="hidden" name="beginDate" id="beginDate" value>
         <label for="days"><input type="number" id="days" name="days"> days</label>
@@ -61,7 +86,7 @@ require_once VIEWS . 'header.php';
         </div>
     </div>
 
-</section>
+</section> -->
 
 <script>
     const dashboardTag = document.getElementById("dashboardTag");
