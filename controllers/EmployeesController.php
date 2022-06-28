@@ -34,6 +34,10 @@ class EmployeesController extends Controller
     public function addEmployee()
     {
         $employee = json_decode(file_get_contents("php://input"), true);
+        if (array_key_exists("employeeId", $employee)) {
+            $employee_id = array_shift($employee);
+        }
+
         $error = [];
 
         //validation form inputs
