@@ -1,5 +1,5 @@
 .container {
-  width: 80rem;
+  width: 72rem;
   display: flex;
   justify-content: space-between;
   max-width: initial;
@@ -81,11 +81,13 @@
 /* Distance */
 .distance {
   background-image: url("../img/team.jpg");
-  width: 80rem;
+  width: 70rem;
   margin-top: 10px;
   background-size: cover;
-  height: 200px;
-  border-radius: 11px;
+  height: 140px;
+  border-radius: 5px;
+  background-position: center;
+  background-position-x: 0px;
 }
 
 .coverage {
@@ -93,7 +95,13 @@
   width: 50%;
   color: whitesmoke;
   margin: auto;
-  padding-top: 50px;
+  padding-top: 20px;
+}
+
+.yellow {
+  color: #ffae00;
+  background: transparent;
+  font-weight: 800;
 }
 .card-counter {
   box-shadow: 2px 2px 10px #dadada;

@@ -26,7 +26,7 @@ require_once VIEWS . 'header.php';
     </div>
 </div>
 <div class="distance">
-    <p class="coverage">Your team has covered a distance of 16,433 km in 10 days</p>
+    <p class="coverage">Your team has covered a distance of <mark class="yellow">16,433 km</mark> in <mark class="yellow">10 days</mark> </p>
 </div>
 <div class="ranking">
     <div class="steps"></div>
